@@ -1,7 +1,11 @@
 package fmt
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 func Errorf(args ...interface{}) error {
-	return errors.New("yolo")
+	str := fmt.Sprintf(args[0].(string), args[1:])
+	return errors.New(str)
 }
